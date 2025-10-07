@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DriveAway India - Contact</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div id="toast-container"></div>
+
+  <header>
+    <nav class="nav">
+      <a href="index.html" class="logo">Drive<span>Away</span></a>
+      <div class="nav-links">
+        <a href="fleet.html">Fleet</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="auth.html" id="auth-link">Login</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="steps">
+    <div class="glass-card" style="max-width:720px;margin:2rem auto;">
+      <h2>Contact Us</h2>
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
+      <p id="contact-success" class="hidden">✅ Message sent successfully!</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 DriveAway India</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

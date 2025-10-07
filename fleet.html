@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DriveAway India - Fleet</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div id="toast-container"></div>
+
+  <header>
+    <nav class="nav">
+      <a href="index.html" class="logo">Drive<span>Away</span></a>
+      <div class="nav-links">
+        <a href="fleet.html" class="active">Fleet</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="contact.html">Contact</a>
+        <a href="auth.html" id="auth-link">Login</a>
+      </div>
+    </nav>
+  </header>
+ <!-- Chatbot Icon -->
+<div id="chatbot-icon">
+    <img src="images/bot.jpg" alt="Chatbot" />
+</div>
+
+<!-- Chatbot Widget -->
+<div id="chatbot-widget" class="hidden">
+    <div id="chatbot-header">
+        DriveAway Bot 🤖
+        <span id="chatbot-close">&times;</span>
+    </div>
+    <div id="chatbot-messages"></div>
+    <input type="text" id="chatbot-input" placeholder="Ask me about bookings, discounts..." />
+</div>
+
+  <!-- Filters: only type + location as requested -->
+  <section class="filters">
+    <h2>Find Your Car</h2>
+    <div class="filter-bar">
+      <select id="car-type">
+        <option value="all">All Types</option>
+        <option value="SUV">SUV</option>
+        <option value="Sedan">Sedan</option>
+        <option value="Hatchback">Hatchback</option>
+        <option value="EV">Electric</option>
+      </select>
+
+      <select id="location">
+        <option value="all">All Locations</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Chennai">Chennai</option>
+      </select>
+    </div>
+  </section>
+
+  <section class="fleet">
+    <h2 class="text-center">Available Cars</h2>
+    <div id="car-list" class="car-grid"></div>
+    <p id="no-results" class="hidden text-center">No cars found.</p>
+  </section>
+
+  <!-- Booking Modal (opens when Rent Now clicked and user is logged in) -->
+  <div id="booking-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content glass-card" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+      <span id="close-modal" class="close" title="Close">&times;</span>
+      <h2 id="booking-title">Book Car</h2>
+
+      <form id="booking-form">
+        <input type="text" id="booking-name" placeholder="Full Name" required />
+        <input type="tel" id="booking-phone" placeholder="Phone Number (10 digits)" required pattern="[0-9]{10}" />
+
+        <input type="text" id="booking-licence" placeholder="Driving Licence No." required />
+        <input type="text" id="booking-aadhar" placeholder="Aadhaar No. (12 digits)" required pattern="\d{12}" maxlength="12" />
+
+        <label for="pickup-datetime">Pickup Date &amp; Time</label>
+        <input type="datetime-local" id="pickup-datetime" required />
+
+        <label for="return-datetime">Return Date &amp; Time</label>
+        <input type="datetime-local" id="return-datetime" required />
+
+        <div style="margin-top:12px;">
+          <button type="submit" class="btn-primary">Confirm Booking</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 DriveAway India</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    const chatbotIcon = document.getElementById("chatbot-icon");
+const chatbotWidget = document.getElementById("chatbot-widget");
+const chatbotClose = document.getElementById("chatbot-close");
+
+// Toggle chatbot on icon click
+chatbotIcon.addEventListener("click", () => {
+    chatbotWidget.classList.toggle("hidden");
+    document.getElementById("chatbot-input").focus();
+});
+
+// Close button
+chatbotClose.addEventListener("click", () => {
+    chatbotWidget.classList.add("hidden");
+});
+
+  </script>
+</body>
+</html>

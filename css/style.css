@@ -1,0 +1,590 @@
+/* =========================
+   Global Theme
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@600;800&display=swap');
+
+:root {
+  --bg: #0f172a;            /* Dark navy */
+  --card: rgba(255, 255, 255, 0.05); 
+  --text: #e2e8f0;          /* Light gray */
+  --muted: #94a3b8;
+  --primary: #ff6b35;       /* Vibrant orange */
+  --primary-hover: #ff854f;
+  --secondary: #1e293b;     /* Deep slate */
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+/* Style both car-type and location selects */
+.filters select {
+  background-color: #1a2238;   /* Dark background */
+  color: #fff;                 /* White text */
+  border: 1px solid #ff6600;   /* Orange border */
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+}
+#chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  max-height: 400px;
+  background: #111;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: sans-serif;
+  z-index: 1000;
+}
+
+.chatbot-header {
+  background: linear-gradient(45deg,#4caf50,#2e7d32);
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.chatbot-messages .message {
+  margin: 5px 0;
+}
+
+.chatbot-messages .user {
+  text-align: right;
+  color: #ffd700;
+}
+
+.chatbot-messages .bot {
+  text-align: left;
+  color: #fff;
+}
+
+#chatbot-input {
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Style dropdown options */
+.filters select option {
+  background-color: #1a2238;  /* Dark background */
+  color: #fff;                /* White text */
+}
+
+/* Optional: hover effect for better UX */
+.filters select:hover {
+  border-color: #ff8533;      /* Lighter orange when hovered */
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #fff;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* =========================
+   Navbar
+========================= */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--secondary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+
+.nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: color 0.3s;
+}
+
+.nav a:hover, .nav a.active {
+  color: var(--primary);
+}
+
+.logo span {
+  color: var(--primary);
+}
+
+/* =========================
+   Hero Section
+========================= */
+.hero {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.8)), 
+              url('../images/hero.jpg') center/cover no-repeat;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* =========================
+   Buttons
+========================= */
+.btn-primary {
+  background: linear-gradient(45deg, var(--primary), var(--primary-hover));
+  border: none;
+  color: #fff;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255,107,53,0.5);
+}
+
+/* =========================
+   Sections & Cards
+========================= */
+section {
+  padding: 4rem 2rem;
+}
+
+.steps, .feedback, .fleet, main {
+  background: var(--bg);
+}
+
+.step-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.step-grid div, .glass-card {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+
+.step-grid div:hover, .glass-card:hover {
+  transform: translateY(-6px);
+}
+
+/* =========================
+   Filters (Fleet Page)
+========================= */
+.filters {
+  text-align: center;
+  background: var(--secondary);
+  padding: 2rem;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.5);
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.filter-bar select, .filter-bar input {
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* =========================
+   Fleet Car Cards
+========================= */
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.car-card {
+  background: var(--card);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.car-info {
+  padding: 1rem;
+}
+
+.car-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.car-info .price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.car-info .specs {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  color: var(--muted);
+}
+
+.car-info .location {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.car-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.7);
+}
+
+/* =========================
+   Forms (Auth & Contact)
+========================= */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input, form textarea {
+  padding: 0.9rem;
+  margin-bottom: 1rem;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  background: var(--secondary);
+  color: var(--text);
+}
+
+form input:focus, form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 8px rgba(255,107,53,0.5);
+}
+
+/* =========================
+   Footer
+========================= */
+/* =========================
+   Sticky Footer Layout
+========================= */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main, section {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto; /* pushes footer down */
+}
+
+/* Auth Container */
+.auth-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.auth-container h2 {
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.auth-container form input,
+.auth-container form textarea {
+  width: 100%;
+}
+
+.switch-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.switch-text a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.switch-text a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   Animations & Transitions
+========================= */
+a, button, input, select, textarea {
+  transition: all 0.3s ease;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* =========================
+   Auth Container Upgrade
+========================= */
+.auth-container {
+  max-width: 420px;
+  margin: 5rem auto;
+  padding: 2.5rem;
+  text-align: center;
+  background: var(--card);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+.auth-container h2 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.auth-container form input,
+.auth-container form textarea {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.auth-container button {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* =========================
+   Fleet Filters Upgrade
+========================= */
+.filter-bar select, 
+.filter-bar input {
+  min-width: 180px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+}
+
+.filter-bar select:focus, 
+.filter-bar input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 6px rgba(255,107,53,0.5);
+}
+
+/* =========================
+   Rent Now Button Styling
+========================= */
+.car-card .btn-primary {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 12px;
+  font-size: 1rem;
+}
+
+/* =========================
+   Responsive Improvements
+========================= */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* =========================
+   Modal (Booking Popup)
+========================= */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  max-width: 450px;
+  width: 90%;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: left;
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.modal-content label {
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0.3rem;
+  display: block;
+}
+
+.close {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 1.8rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--primary);
+}
+/* =========================
+   Toast Notifications
+========================= */
+#toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  background: var(--secondary);
+  color: var(--text);
+  padding: 1rem 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 0.3s forwards, fadeOut 0.5s 3s forwards;
+  font-size: 0.95rem;
+}
+
+.toast.success { border-left: 5px solid #22c55e; }  /* Green */
+.toast.error { border-left: 5px solid #ef4444; }    /* Red */
+.toast.info { border-left: 5px solid var(--primary); } /* Orange */
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+/* Chatbot Icon */
+#chatbot-icon {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #1e1e2f;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 2000; /* Higher than any section or image */
+    overflow: hidden;
+}
+
+#chatbot-icon img {
+    width: 80px;
+    object-fit: contain;
+    animation: float 3s ease-in-out infinite;
+    
+}
